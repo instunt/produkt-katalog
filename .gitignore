@@ -1,6 +1,5 @@
 *.pyc
 _pycache_
-protracker
 db.sqlite3
 /static
 .DS_Store

@@ -20,10 +20,19 @@
           <div class="row">
             <div class="col-md-8 col-sm-8">
             {% if user.is_authenticated %}
-            <h1>Produkty</h1><br><br>  
+            <h1>Produkty</h1><br>
             {% for it in produkty %}
-                <img class="obrazok" src="{{ it.obrlinka }}"><b>{{ it.nazov }}</b>&nbsp;&nbsp;&nbsp;{{ it.shoplinka }}<br>
-                {{ it.text }}<br><br><br>
+              <div class="row">                      
+                <div class="col-md-3 col-sm-4">
+                  <img class="obrazok" src="{{ it.obrlinka }}">
+                </div>    
+                <div class="col-md-3 col-sm-4">
+                  <b>{{ it.nazov }}</b>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                  {{ it.shoplinka }}
+                </div>                                                                      
+              </div>
               <hr>
             {% endfor %}          
             </div>
