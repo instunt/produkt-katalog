@@ -3,9 +3,9 @@ from django.db import models
 from django.utils import timezone
 
 class Produkt(models.Model):
-  autor = models.ForeignKey('auth.User')
   nazov = models.CharField(max_length=100)
-  linka = models.TextField()
+  shoplinka = models.CharField(max_length=600, default="n/a")
+  obrlinka = models.CharField(max_length=600, default="n/a")
   created_date = models.DateTimeField(default=timezone.now)
   
   def __unicode__(self):

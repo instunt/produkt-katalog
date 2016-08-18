@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ProTracker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
+	</head>
+	<body class="">
+    <header>
+    </header>
+    <div class="container-fluid content">
+      <div class="row">
+        <div class="col-sm-12">  
+          <div class="row">
+            <div class="col-md-8 col-sm-8">
+            {% if user.is_authenticated %}
+            <h1>Produkty</h1><br><br>  
+            {% for it in produkty %}
+                <img class="obrazok" src="{{ it.obrlinka }}"><b>{{ it.nazov }}</b>&nbsp;&nbsp;&nbsp;{{ it.shoplinka }}<br>
+                {{ it.text }}<br><br><br>
+              <hr>
+            {% endfor %}          
+            </div>
+            <div class="col-md-4 col-sm-4">
+            <a href="{% url 'logout' %}" class="top-menu">Odhlasit sa</a><br><br>
+            <h3>Pridat Produkt</h3><br><br>  
+              <form method="POST">{% csrf_token %}   
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Ulozit</button>
+              </form>
+            </div>
+            
+            {% else %}
+             <h1>Prihlasit sa</h1><br>
+             
+             <a href="{% url 'login' %}" class="top-menu"></a>
+            {% endif %}
+            
+          </div>
+        </div>        
+      </div>          
+    </div> 
+	</body>
+</html>
