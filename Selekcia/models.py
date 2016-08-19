@@ -7,6 +7,8 @@ class Produkt(models.Model):
   shoplinka = models.CharField(max_length=600, default="n/a")
   obrlinka = models.CharField(max_length=600, default="n/a")
   created_date = models.DateTimeField(default=timezone.now)
+  cena = models.FloatField(default=0)  
+  mena = models.CharField(max_length=3, default="EUR")
   
   def __unicode__(self):
     return self.nazov
