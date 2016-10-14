@@ -129,7 +129,9 @@
           
       <div class="row hidden-sm hidden-md hidden-lg">
             <div class="col-xs-12">            
-            <h1>Produkty</h1><br>
+            <a href="{% url 'main' %}" class="title">Produkty</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'ceny' %}" class="title">Ceny</a>
             {% for it in produkty %}
               <div class="row">                      
                 <div class="col-md-3 col-sm-4">
