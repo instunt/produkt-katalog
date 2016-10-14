@@ -22,58 +22,67 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url 'ceny' %}" class="title">Ceny</a>
             <br><br>
-            {% for it in produkty %}
-              <div class="row">                      
+            {% for it in ceny %}
+              <div class="row">                                    
                 <div class="col-md-3 col-sm-4">
                   <img class="obrazok" src="{{ it.obrlinka }}">
                 </div>    
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br><b>{{ it.nazov }}</b>
+                  <br><br><b>{{ it.nazov }}</b><br>
+                  {{ it.vyrobca }}
                 </div>
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br><a href="{{ it.shoplinka }}">Do obchodu</a>
+                <br><br>{{ it.cena }}&nbsp;{{ it.mena }}                
                 </div>
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br>{{ it.cena }}&nbsp;{{ it.mena }}
-                </div>                                                                                         
+                <br><br>{{ it.miesto }}&nbsp;<br>
+                {{ it.datum }}
+                </div>                                                                              
               </div>
               <hr>
-            {% endfor %}          
+            {% endfor %}  
+                                             
             </div>
             <div class="col-sm-4 col-xs-2">
               <div class="formular">
                 <a href="{% url 'logout' %}" class="top-menu btn btn-md pravy btn-danger">Odhlasit sa</a><br><br>
-                <h3>Pridat Produkt</h3><br><br>  
+                <h3>Pridat Ceny</h3><br><br>  
                   <form method="POST">{% csrf_token %}
-                    {{ form.non_field_errors }}   
+                    {{ formc.non_field_errors }}   
                     <div class="fieldWrapper">
-                      {{ form.nazov.errors }}
+                      {{ formc.nazov.errors }}
                       <label for="{{ form.nazov.id_for_label }}">Nazov:</label><br>
-                      {{ form.nazov }}
+                      {{ formc.nazov }}
                     </div>
                     
                     <div class="fieldWrapper">
-                      {{ form.shoplinka.errors }}
-                      <label for="{{ form.shoplinka.id_for_label }}">Odkaz na produkt v obchode:</label><br>
-                      {{ form.shoplinka }}
+                      {{ formc.vyrobca.errors }}
+                      <label for="{{ form.vyrobca.id_for_label }}">Vyrobca:</label><br>
+                      {{ formc.vyrobca }}
                     </div>
                     
                     <div class="fieldWrapper">
-                      {{ form.obrlinka.errors }}
-                      <label for="{{ form.obrlinka.id_for_label }}">Odkaz na obrazok:</label><br>
-                      {{ form.obrlinka }}
+                      {{ formc.cena.errors }}
+                      <label for="{{ form.cena.id_for_label }}">Cena:</label><br>
+                      {{ formc.cena }}
                     </div>
                                         
                     <div class="fieldWrapper">
-                      {{ form.cena.errors }}
-                      <label for="{{ form.cena.id_for_label }}">Cena:</label><br>
-                      {{ form.cena }}
+                      {{ formc.mena.errors }}
+                      <label for="{{ form.mena.id_for_label }}">Mena:</label><br>
+                      {{ formc.mena }}
                     </div>
                     
                     <div class="fieldWrapper">
-                      {{ form.mena.errors }}
-                      <label for="{{ form.mena.id_for_label }}">Mena:</label><br>
-                      {{ form.mena }}
+                      {{ formc.datum.errors }}
+                      <label for="{{ form.datum.id_for_label }}">Datum:</label><br>
+                      {{ formc.datum }}
+                    </div>                    
+                    
+                    <div class="fieldWrapper">
+                      {{ formc.miesto.errors }}
+                      <label for="{{ form.miesto.id_for_label }}">Miesto:</label><br>
+                      {{ formc.miesto }}
                     </div>                                                                                                    
                     <br><br>     
                     <button type="submit" class="save btn btn-primary">Ulozit</button>
@@ -87,37 +96,43 @@
             <div class="col-xs-2">
               <div class="formular-maly">
                 <a href="{% url 'logout' %}" class="top-menu btn btn-md pravy btn-danger">Odhlasit sa</a><br><br>
-                <h3>Pridat Produkt</h3><br><br>  
+                <h3>Pridat Cenu</h3><br><br>  
                   <form method="POST">{% csrf_token %}
-                    {{ form.non_field_errors }}   
+                    {{ formc.non_field_errors }}   
                     <div class="fieldWrapper">
-                      {{ form.nazov.errors }}
+                      {{ formc.nazov.errors }}
                       <label for="{{ form.nazov.id_for_label }}">Nazov:</label><br>
-                      {{ form.nazov }}
+                      {{ formc.nazov }}
                     </div>
                     
                     <div class="fieldWrapper">
-                      {{ form.shoplinka.errors }}
-                      <label for="{{ form.shoplinka.id_for_label }}">Odkaz na produkt v obchode:</label><br>
-                      {{ form.shoplinka }}
+                      {{ formc.vyrobca.errors }}
+                      <label for="{{ form.vyrobca.id_for_label }}">Vyrobca:</label><br>
+                      {{ formc.vyrobca }}
                     </div>
                     
                     <div class="fieldWrapper">
-                      {{ form.obrlinka.errors }}
-                      <label for="{{ form.obrlinka.id_for_label }}">Odkaz na obrazok:</label><br>
-                      {{ form.obrlinka }}
+                      {{ formc.cena.errors }}
+                      <label for="{{ form.cena.id_for_label }}">Cena:</label><br>
+                      {{ formc.cena }}
                     </div>
                                         
                     <div class="fieldWrapper">
-                      {{ form.cena.errors }}
-                      <label for="{{ form.cena.id_for_label }}">Cena:</label><br>
-                      {{ form.cena }}
+                      {{ formc.mena.errors }}
+                      <label for="{{ form.mena.id_for_label }}">Mena:</label><br>
+                      {{ formc.mena }}
                     </div>
+
+                    <div class="fieldWrapper">
+                      {{ formc.datum.errors }}
+                      <label for="{{ form.datum.id_for_label }}">Datum:</label><br>
+                      {{ formc.datum }}
+                    </div>                    
                     
                     <div class="fieldWrapper">
-                      {{ form.mena.errors }}
-                      <label for="{{ form.mena.id_for_label }}">Mena:</label><br>
-                      {{ form.mena }}
+                      {{ formc.miesto.errors }}
+                      <label for="{{ form.miesto.id_for_label }}">Miesto:</label><br>
+                      {{ formc.miesto }}
                     </div>                                                                                                    
                     <br><br>     
                     <button type="submit" class="save btn btn-primary">Ulozit</button>

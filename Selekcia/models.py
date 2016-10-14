@@ -12,3 +12,16 @@ class Produkt(models.Model):
   
   def __unicode__(self):
     return self.nazov
+    
+class Ceny(models.Model):
+  nazov = models.CharField(max_length=100)
+  vyrobca = models.CharField(max_length=100, default="n/a")
+  cena = models.FloatField(default=0)
+  mena = models.CharField(max_length=3, default="EUR")  
+  datum = models.DateTimeField(default=timezone.now, blank=True)
+  miesto = models.CharField(max_length=200)
+  obrlinka = models.CharField(max_length=600, default="n/a")
+  
+  def __unicode__(self):
+    return self.nazov
+      
