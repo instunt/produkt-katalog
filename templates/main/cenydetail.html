@@ -148,19 +148,21 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url 'ceny' %}" class="title">Ceny</a>
             {% for it in ceny %}
-              <div class="row">                      
+              <div class="row">                                    
                 <div class="col-md-3 col-sm-4">
                   <img class="obrazok" src="{{ it.obrlinka }}">
                 </div>    
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br><b>{{ it.nazov }}</b>
+                  <br><br><b>{{ it.nazov }}</b><br>
+                  {{ it.vyrobca }}
                 </div>
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br><a href="{{ it.shoplinka }}">Do obchodu</a>
+                <br><br>{{ it.cena }}&nbsp;{{ it.mena }}                
                 </div>
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br>{{ it.cena }}&nbsp;{{ it.mena }}
-                </div>                                                                                         
+                <br><br>{{ it.miesto }}&nbsp;<br>
+                {{ it.datum }}
+                </div>                                                                              
               </div>
               <hr>
             {% endfor %}          
