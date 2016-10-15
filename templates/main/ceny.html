@@ -140,11 +140,11 @@
           </div>            
           
       <div class="row hidden-sm hidden-md hidden-lg">
-            <div class="col-xs-12">            
+        <div class="col-xs-12">            
             <a href="{% url 'main' %}" class="title">Produkty</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url 'ceny' %}" class="title">Ceny</a>
-            {% for it in produkty %}
+            {% for it in output %}
               <div class="row">                      
                 <div class="col-md-3 col-sm-4">
                   <img class="obrazok" src="{{ it.obrlinka }}">
@@ -156,14 +156,13 @@
                   <br><br><br><a href="{{ it.shoplinka }}">Do obchodu</a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                  <br><br><br>{{ it.cena }}&nbsp;{{ it.mena }}
-                </div>                                                                                         
-              </div>
-              <hr>
-            {% endfor %}          
+                <br><br><br>{{ it.cena }}&nbsp;{{ it.mena }}
+              </div>                                                                                         
             </div>
-        </div>                                                                                        
-                  
+            <hr>
+            {% endfor %}          
+        </div>
+      </div>                                                                                                          
     </div> 
     
     {% else %}
